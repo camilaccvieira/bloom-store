@@ -12,7 +12,11 @@ import {
 const ProductList = ({ products, view, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const paginatedProducts = products.slice(
+  const filteredProducts = products.filter(
+    (product) => product.category !== "men's clothing"
+  );
+
+  const paginatedProducts = filteredProducts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );

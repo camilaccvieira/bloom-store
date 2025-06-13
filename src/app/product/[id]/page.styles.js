@@ -1,4 +1,4 @@
-// ProductPage.styles.ts
+
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -134,6 +134,12 @@ export const PriceBox = styled.div`
     font-weight: 800;
     color: #000000;
     margin-bottom: 1rem;
+  }
+
+  .base-price {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
   }
 
   button {

@@ -37,9 +37,10 @@ export default function ProductPage() {
   }, [params?.id]);
 
   if (loading) return <div className="text-center py-8">Carregando...</div>;
+  
+const currentPrice = (product.price * 0.9).toFixed(2).replace('.', ',');
+const originalPrice = product.price.toFixed(2).replace('.', ',');
 
-  const originalPrice = (product.price * 1.1).toFixed(2).replace('.', ',');
-  const currentPrice = product.price.toFixed(2).replace('.', ',');
 
   return (
   <Container>
@@ -81,7 +82,7 @@ export default function ProductPage() {
             <p className="text">{product.description}</p>
           </Description>
         </Details>
-          <PriceBox>
+          {product.category === `men's clothing` ? <PriceBox>
             <div className="badge">10% OFF</div>
             <div className="original">DE: R$ {originalPrice}</div>
             <div className="current">POR: R$ {currentPrice}</div>
@@ -89,7 +90,14 @@ export default function ProductPage() {
               <ShoppingCartIcon />
               COMPRAR
             </button>
-          </PriceBox>
+          </PriceBox> : <PriceBox>
+            <div className="base-price ">R$</div>
+            <div className="current">POR: R$ {currentPrice}</div>
+            <button>
+              <ShoppingCartIcon />
+              COMPRAR
+            </button>
+          </PriceBox> }
       </Card>
     </Content>
   </Container>

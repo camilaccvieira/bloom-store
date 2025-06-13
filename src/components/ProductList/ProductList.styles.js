@@ -10,16 +10,20 @@ export const ListViewContainer = styled.div`
 `;
 
 export const GridViewContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+   display: grid;
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1.5rem;
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr); // sm:grid-cols-2
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); 
   }
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr); // md:grid-cols-3
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr); 
   }
 `;
 

@@ -17,11 +17,14 @@ import {
   CurrentPrice,
   BuyButton,
 } from './ProductCarrousel.styles';
+import { useRouter } from 'next/navigation';
 
-const ProductCarrousel = () => {
+const ProductCarrousel = ( {product}) => {
   const [mensClothing, setMensClothing] = useState([]);
   const { addToCart } = useCart();
   const scrollRef = useRef(null);
+  const router = useRouter();
+  
 
   useEffect(() => {
     axios
@@ -41,6 +44,10 @@ const ProductCarrousel = () => {
     }
   };
 
+  const goToDetails = ({id}) => {
+    router.push(`/product/${id}`);
+  };
+
   return (
     <Section>
       <Title>MEN'S CLOTHING</Title>
@@ -54,15 +61,15 @@ const ProductCarrousel = () => {
       </ScrollButton>
 
       <ScrollContainer ref={scrollRef}>
-        <ProductsWrapper>
+        <ProductsWrapper >
           {mensClothing.map((product) => {
-            const originalPrice = (product.price * 1.1).toFixed(2).replace('.', ',');
-            const currentPrice = product.price.toFixed(2).replace('.', ',');
+            const currentPrice = (product.price * 0.9).toFixed(2).replace('.', ',');
+            const originalPrice = product.price.toFixed(2).replace('.', ',');
 
             return (
               <ProductCard key={product.id}>
                 <Badge>10% OFF</Badge>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center' }} onClick={() => goToDetails({ id: product.id })}>
                   <ImageWrapper>
                     <img
                       src={product.image}

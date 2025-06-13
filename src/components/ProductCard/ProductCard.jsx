@@ -34,7 +34,7 @@ const ProductCard = ({ product, view }) => {
           <Description>{product.description}</Description>
         </Details>
         <AddToCartButton onClick={(e) => {
-          e.stopPropagation(); // evita redirecionamento ao clicar no botão
+          e.stopPropagation();
           addToCart(product);
         }}>
           <ShoppingCartIcon fontSize="small" />
@@ -44,7 +44,7 @@ const ProductCard = ({ product, view }) => {
   }
 
   return (
-    <GridContainer>
+    <GridContainer onClick={goToDetails}>
       <ImageCenter src={product.image} alt={product.title} />
       <Details style={{ paddingTop: '1rem' }}>
         <Title>{product.title}</Title>
