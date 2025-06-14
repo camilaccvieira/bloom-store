@@ -16,7 +16,6 @@ export const Card = styled.div`
   background-color: white;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
   padding: 2rem 1.5rem;
   position: relative;
   display: flex;
@@ -44,6 +43,11 @@ export const ImageWrapper = styled.div`
     width: 100%;
     height: auto;
     object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+
+    width: 40%;
   }
 `;
 
@@ -171,6 +175,21 @@ export const PriceBox = styled.div`
     right: 2rem;
     max-width: 20rem;
     width: auto;
+
+    .badge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: #5062F0;
+    color: white;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-align: -webkit-center;
+  }
   }
 `;
 
@@ -191,5 +210,8 @@ export const Description = styled.div`
     font-size: 0.875rem;
     color: #374151;
     line-height: 1.6;
+  }
+    @media (min-width: 768px) {
+    flex-direction: row;
   }
 `;
